@@ -30,33 +30,13 @@ describe('basic test', () => {
     console.log(`${queryString.isDisplayed()}`);
     expect(queryString.isDisplayed()).toBe(true, 'Query string is not displayed');
   });
-  it('should check search request', () => {
+  it('should check invoke search', () => {
     browser.back();
     const invokeSearch = $('~Invoke Search');
-    const prefillQuery = '#io.appium.android.apis:id/txt_query_prefill';
-    const appData = '#io.appium.android.apis:id/txt_query_appdata';
-    const onSearchRequested = $('~onSearchRequested()');
-    const searchResult = $('#android:id/search_src_text');
+    const wayToInvokeSearch = $('~Ways to invoke search');
     invokeSearch.click();
-    browser.element('#io.appium.android.apis:id/txt_query_prefill').setValue('My request');
-    browser.element('#io.appium.android.apis:id/txt_query_appdata').setValue('My request');
-    onSearchRequested.click();
-    console.log(`${searchResult.getText()}`);
-    expect(searchResult.getText()).toContain('My request', 'Incorrect result of searching');
+    console.log(`${wayToInvokeSearch.isExisting()}`);
+    expect(wayToInvokeSearch.isExisting()).toBe(true, 'Ways to invoke search are not exist');
+    browser.closeApp();
   });
 });
-
-// describe('checking', () => {
-//   const app = $('~App');
-//   console.log('\nTest2 starts!\n');
-//   it('the button should be displayed', async () => {
-//     const app = $('~App');
-//     const menu = $('~Menu');
-//     const inflate = $('~Inflate from XML');
-//     app.click();
-//     menu.click();
-//     console.log(`${inflate.isDisplayed()}`);
-//     expect(inflate.isDisplayed()).toBe(true, 'The button is not displayed');
-//   });
-// });
-
