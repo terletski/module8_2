@@ -64,6 +64,7 @@ exports.config = {
     logLevel: 'error',
     //
     // Warns when a deprecated command is used
+    coloredLogs: true,
     deprecationWarnings: true,
     //
     // If you only want to run your tests until a specific amount of tests have failed use
@@ -102,7 +103,7 @@ exports.config = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter.html
-    reporters: ['dot'],
+    reporters: ['spec'],
     
     //
     // Options to be passed to Jasmine.
